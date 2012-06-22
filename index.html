@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>Glasses View</title>
+
+  <style type="text/css">
+    html {
+      background: url(http://subtlepatterns.com/patterns/subtlenet2.png) ;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      background-image: -webkit-gradient(
+        linear, left top, left bottom, from(rgba(254,254,254,0.8)), to(rgba(0,0,0,0.2))
+      );
+    }
+
+    video {
+      opacity: 0.4;
+      -webkit-transform: scaleX(-1);
+
+      position: absolute;
+
+      z-index: 500;
+
+      height: 150px;
+      width: 190px;
+    }
+      #camera1 {
+        left: 204px;
+        top: 282px;
+        transform:rotate(-3deg);
+      }
+      #camera2 {
+        left: 404px;
+        top: 291px;
+
+        transform:rotate(3deg);
+      }
+
+    .glasses-face {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+    }
+      .top {
+        z-index: 1000;
+      }
+      .bottom {
+        z-index: 100;
+      }
+  </style>
+
+</head>
+<body>
+
+  <div>
+    <img class="glasses-face top" src="large_transparent.png">
+    <video id="camera1" autoplay></video>
+    <video id="camera2" autoplay></video>
+    <img class="glasses-face bottom" src="large_crop.jpg">
+  </div>
+
+  <script type="text/javascript">
+
+    navigator.webkitGetUserMedia({video: true, audio: false}, 
+      function(stream) {
+        document.getElementById('camera1').src = window.webkitURL.createObjectURL(stream);
+        document.getElementById('camera2').src = window.webkitURL.createObjectURL(stream);
+      }, 
+
+      function() { 
+        console.log('error getting stream');
+      }
+    );
+
+  </script>
+</body>
+</html>
