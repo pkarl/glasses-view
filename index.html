@@ -54,7 +54,9 @@
 </head>
 <body>
 
-  <div>
+  <a href="http://github.com/pkarl/glasses-view">Check out the project on Github</a>
+
+  <div id="glasses-view-container">
     <img class="glasses-face top" src="large_transparent.png">
     <video id="camera1" autoplay></video>
     <video id="camera2" autoplay></video>
@@ -62,6 +64,10 @@
   </div>
 
   <script type="text/javascript">
+
+    if (!navigator.webkitGetUserMedia) {
+      alert('Heya! I noticed your browser doesn\'t support WebRTC for some reason. Check out the project README so you can get this to work properly!')
+    }
 
     navigator.webkitGetUserMedia({video: true, audio: false}, 
       function(stream) {
