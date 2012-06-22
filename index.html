@@ -17,25 +17,37 @@
 
     video {
       opacity: 0.4;
-      -webkit-transform: scaleX(-1);
-
-      position: absolute;
-
-      z-index: 500;
-
-      height: 150px;
-      width: 190px;
+      height: 250px;
     }
-      #camera1 {
-        left: 204px;
-        top: 282px;
-        transform:rotate(-3deg);
+      #camera1-mask, #camera2-mask {
+        position: absolute;
+        width: 180px;
+        overflow: hidden;
+        z-index: 600;
       }
-      #camera2 {
-        left: 404px;
-        top: 291px;
 
-        transform:rotate(3deg);
+      #camera1-mask {
+        left: 194px;
+        top: 271px;
+
+        width: 190px;
+
+        -webkit-transform: scaleX(-1) rotate(2deg);
+
+        text-align: left;
+      }
+        #camera1-mask video {
+          float: right;
+        }
+
+      #camera2-mask {
+        position: absolute;
+        left: 406px;
+        top: 277px;
+
+        z-index: 600;
+
+        -webkit-transform: scaleX(-1) rotate(-3deg);
       }
 
     .glasses-face {
@@ -54,19 +66,19 @@
 </head>
 <body>
 
-  <a href="http://github.com/pkarl/glasses-view">Check out the project on Github</a>
+  <p><a href="http://github.com/pkarl/glasses-view">Check out the project on Github</a></p>
 
   <div id="glasses-view-container">
     <img class="glasses-face top" src="large_transparent.png">
-    <video id="camera1" autoplay></video>
-    <video id="camera2" autoplay></video>
+    <div id="camera1-mask"><video id="camera1" autoplay></video></div>
+    <div id="camera2-mask"><video id="camera2" autoplay></video></div>
     <img class="glasses-face bottom" src="large_crop.jpg">
   </div>
 
   <script type="text/javascript">
 
     if (!navigator.webkitGetUserMedia) {
-      alert('Heya! I noticed your browser doesn\'t support WebRTC for some reason. Check out the project README so you can get this to work properly!')
+      alert('Heya! I noticed your browser doesn\'t support WebRTC for some reason. Check out the project README so you can get this to work properly!');
     }
 
     navigator.webkitGetUserMedia({video: true, audio: false}, 
