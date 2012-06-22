@@ -2,74 +2,7 @@
 <head>
   <title>Glasses View</title>
 
-  <style type="text/css">
-    html {
-      background: url(http://subtlepatterns.com/patterns/subtlenet2.png) ;
-    }
-
-    body {
-      text-align: center;
-      padding: 0;
-      margin: 0;
-      background-image: -webkit-gradient(
-        linear, left top, left bottom, from(rgba(254,254,254,0.8)), to(rgba(0,0,0,0.2))
-      );
-    }
-
-    p {
-      padding: 1em 0;
-    }
-
-    #glasses-view-container {
-      position: relative;
-      margin: 0 auto;
-      width: 667px;
-      height: 646px;
-
-      border: 10px solid #b9b9b9;
-    }
-
-      #camera1-mask, #camera2-mask {
-        position: absolute;
-        overflow: hidden;
-        z-index: 600;
-      }
-
-      #camera1-mask {
-        left: 153px;
-        top: 221px;
-        width: 190px;
-        -webkit-transform: scaleX(-1) rotate(2deg);
-        text-align: left;
-      }
-
-      #camera2-mask {
-        position: absolute;
-        left: 342px;
-        top: 231px;
-        width: 180px;
-        z-index: 600;
-        -webkit-transform: scaleX(-1) rotate(-3deg);
-      }
-
-      video {
-        opacity: 0.4;
-        height: 200px;
-        float: right;
-      }
-
-    .glasses-face {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-      .top {
-        z-index: 1000;
-      }
-      .bottom {
-        z-index: 100;
-      }
-  </style>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
 <body>
@@ -89,7 +22,8 @@
     document.addEventListener("DOMContentLoaded", function() {
 
       navigator.getUserMedia({video: true, audio: false}, 
-        function(raw, cooked) {
+        function(raw) {
+          var cooked = window.URL.createObjectURL( raw )
           document.getElementById('camera1').src = cooked;
           document.getElementById('camera2').src = cooked;
         }
