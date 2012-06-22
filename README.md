@@ -33,8 +33,8 @@ http://www.flickr.com/photos/studiosushi/3942866754/
 CSS Tweaks
 ==========
 
-flip the video with scaleX(-1)
+flip the video with css using transform: scaleX(-1)
 
-tweak the rotation slightly for effect.
+tweak the rotation slightly for effect with rotate(2deg)
 
-using multiple transform properties in canary required the -webkit prefix. transform: scaleX(-1) rotate(2deg) didn't work.
+using multiple transform properties in canary required the -webkit prefix. *transform: scaleX(-1) rotate(2deg)* didn't work.

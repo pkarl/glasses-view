@@ -38,11 +38,8 @@
       #camera1-mask {
         left: 153px;
         top: 221px;
-
         width: 190px;
-
         -webkit-transform: scaleX(-1) rotate(2deg);
-
         text-align: left;
       }
 
@@ -50,11 +47,8 @@
         position: absolute;
         left: 342px;
         top: 231px;
-
         width: 180px;
-
         z-index: 600;
-
         -webkit-transform: scaleX(-1) rotate(-3deg);
       }
 
@@ -89,23 +83,22 @@
     <img class="glasses-face bottom" src="large_crop.jpg">
   </div>
 
-  <script type="text/javascript">
 
-    if (!navigator.webkitGetUserMedia) {
-      alert('Heya! I noticed your browser doesn\'t support WebRTC for some reason. Check out the project README so you can get this to work properly!');
-    }
+  <script src="navigator.getusermedia.js"></script>
+  <script>
 
-    navigator.webkitGetUserMedia({video: true, audio: false}, 
-      function(stream) {
-        document.getElementById('camera1').src = window.webkitURL.createObjectURL(stream);
-        document.getElementById('camera2').src = window.webkitURL.createObjectURL(stream);
-      }, 
+    document.addEventListener("DOMContentLoaded", function() {
 
-      function() { 
-        console.log('error getting stream');
-      }
-    );
+      navigator.getUserMedia({video: true, audio: false}, 
+        function(raw, cooked) {
+          document.getElementById('camera1').src = cooked;
+          document.getElementById('camera2').src = cooked;
+        }
+      );
 
+    });
+
+    // teh Googs
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-294631-12']);
     _gaq.push(['_trackPageview']);
