@@ -8,6 +8,7 @@
     }
 
     body {
+      text-align: center;
       padding: 0;
       margin: 0;
       background-image: -webkit-gradient(
@@ -15,20 +16,28 @@
       );
     }
 
-    video {
-      opacity: 0.4;
-      height: 250px;
+    p {
+      padding: 1em 0;
     }
+
+    #glasses-view-container {
+      position: relative;
+      margin: 0 auto;
+      width: 667px;
+      height: 646px;
+
+      border: 10px solid #b9b9b9;
+    }
+
       #camera1-mask, #camera2-mask {
         position: absolute;
-        width: 180px;
         overflow: hidden;
         z-index: 600;
       }
 
       #camera1-mask {
-        left: 194px;
-        top: 271px;
+        left: 153px;
+        top: 221px;
 
         width: 190px;
 
@@ -36,24 +45,29 @@
 
         text-align: left;
       }
-        #camera1-mask video {
-          float: right;
-        }
 
       #camera2-mask {
         position: absolute;
-        left: 406px;
-        top: 277px;
+        left: 342px;
+        top: 231px;
+
+        width: 180px;
 
         z-index: 600;
 
         -webkit-transform: scaleX(-1) rotate(-3deg);
       }
 
+      video {
+        opacity: 0.4;
+        height: 200px;
+        float: right;
+      }
+
     .glasses-face {
       position: absolute;
-      top: 50px;
-      left: 50px;
+      top: 0;
+      left: 0;
     }
       .top {
         z-index: 1000;
