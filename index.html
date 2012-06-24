@@ -7,9 +7,7 @@
 </head>
 <body>
 
-  <p><a href="http://github.com/pkarl/glasses-view">Check out the project on Github</a></p>
-
-  <p>You need to view this in a browser that supports getUserMedia. Looks like you're <span id="gum_success">in need of one (download <a href="https://tools.google.com/dlpage/chromesxs">Chrome Canar</a>y, or <a href="http://www.opera.com/browser/next/">Opera Next</a>)</span></p>
+  <p>You need to view this in a browser that supports <a href="http://html5doctor.com/getusermedia/">getUserMedia</a>. It looks like you're <span id="gum_success"><strong>in need of one</strong> (download <a href="https://tools.google.com/dlpage/chromesxs">Chrome Canar</a>y, or <a href="http://www.opera.com/browser/next/">Opera Next</a>)</span>.</p>
 
   <div id="glasses-view-container">
     <img class="glasses-face top" src="large_transparent.png">
@@ -18,22 +16,31 @@
     <img class="glasses-face bottom" src="large_crop.jpg">
   </div>
 
+  <p><a href="http://github.com/pkarl/glasses-view">Check out the project on Github</a></p>
+
   <script src="navigator.getusermedia.js"></script>
   <script>
 
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener( "DOMContentLoaded", function() {
 
-      if ( navigator.getUserMedia ) {
-        docuemnt.getElementById('gum_success').innerHTML = 'GOOD SHAPE';
+      // user-friendliness
+
+      if ( typeof(navigator.getUserMedia) !== 'function' ) {
+        document.getElementById('glasses-view-container').className = "inactive";
+        return;
       } else {
-        navigator.getUserMedia({video: true, audio: false}, 
-          function(raw) {
-            var cooked = window.URL.createObjectURL( raw )
-            document.getElementById('camera1').src = cooked;
-            document.getElementById('camera2').src = cooked;
-          }
-        );
+        document.getElementById('gum_success').innerHTML = '<strong style="color:green">good to go</strong>';
       }
+
+      // actual getMedia stuff
+
+      navigator.getUserMedia({video: true, audio: false}, 
+        function(raw) {
+          var cooked = window.URL.createObjectURL( raw )
+          document.getElementById('camera1').src = cooked;
+          document.getElementById('camera2').src = cooked;
+        }
+      );
 
     });
 

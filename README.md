@@ -23,9 +23,10 @@ Referenced https://github.com/rwldrn/idiomatic.js/
 
 Ran into issue like this dude:
 
-...[14:33:56] <Sebah> i have a quick question: I'm trying to run a local file into a web page ( ie: <source type="video/mp4" src="file:///O:/test.mp4"></source> ) and Chrome throws back the following error: **Not allowed to load local resource: file:///O:/test.mp4**. Is there a way to tackle this...
+...[14:33:56] <Sebah> i have a quick question: I'm trying to run a local file into a web page ( ie: <source type="video/mp4" src="file:///O:/test.mp4"></source> ) and Chrome throws back the following error: **Not allowed to load local resource: file:///O:/test.mp4**. Is there a way to tackle this. 
 
-To fix, switch from directly referencing the file to accessing via a web server. I used *python -m SimpleHTTPServer*
+To fix, switch from directly referencing the file to accessing via a web server. I used *python -m SimpleHTTPServer* The same rules apply when accessing a stream object that the browser creates for you locally when using getUserMedia, so run a server in either case.
+
 
 Found a glasses person on flickr (creative commons)
 http://www.flickr.com/photos/studiosushi/3942866754/
