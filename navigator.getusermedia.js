@@ -3,22 +3,17 @@
 * Copyright (c) 2012 Rick Waldron <waldron.rick@gmail.com>; Licensed MIT 
 * Truncated heavily by Pete Karl */
 
-(function( window, navigator ) {
-  // 2012-03-08 Inspired by https://gist.github.com/f2ac64ed7fc467ccdfe3
+// I removed contextual comments that Rick had in here because I removed
+// some code that he was contexualizing. I don't want him to look bad 
+// because of my over-eager deletions. - PK
 
-  // If unprefix.js is available, use it.
-  // https://github.com/rwldrn/unprefix.js
-  // Otherwise...
+(function( window, navigator ) {
   if ( !window.unprefix ) {
-    // Thanks to Mike Taylr for typing this
-    // https://gist.github.com/f2ac64ed7fc467ccdfe3
-    // normalize window.URL
     if ( !window.URL ) {
-      window.URL = window.webkitURL || window.msURL || window.oURL;
+      window.URL = window.webkitURL || window.oURL;
     }
-    // normalize navigator.getUserMedia
     if ( !navigator.getUserMedia ) {
-      navigator.getUserMedia = navigator.webkitGetUserMedia
+      navigator.getUserMedia = navigator.webkitGetUserMedia || {}
     }
   }
 

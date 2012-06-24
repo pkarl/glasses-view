@@ -9,6 +9,8 @@
 
   <p><a href="http://github.com/pkarl/glasses-view">Check out the project on Github</a></p>
 
+  <p>You need to view this in a browser that supports getUserMedia. Looks like you're <span id="gum_success">in need of one (download <a href="https://tools.google.com/dlpage/chromesxs">Chrome Canar</a>y, or <a href="http://www.opera.com/browser/next/">Opera Next</a>)</span></p>
+
   <div id="glasses-view-container">
     <img class="glasses-face top" src="large_transparent.png">
     <div id="camera1-mask"><video id="camera1" autoplay></video></div>
@@ -21,13 +23,17 @@
 
     document.addEventListener("DOMContentLoaded", function() {
 
-      navigator.getUserMedia({video: true, audio: false}, 
-        function(raw) {
-          var cooked = window.URL.createObjectURL( raw )
-          document.getElementById('camera1').src = cooked;
-          document.getElementById('camera2').src = cooked;
-        }
-      );
+      if ( navigator.getUserMedia ) {
+        docuemnt.getElementById('gum_success').innerHTML = 'GOOD SHAPE';
+      } else {
+        navigator.getUserMedia({video: true, audio: false}, 
+          function(raw) {
+            var cooked = window.URL.createObjectURL( raw )
+            document.getElementById('camera1').src = cooked;
+            document.getElementById('camera2').src = cooked;
+          }
+        );
+      }
 
     });
 
