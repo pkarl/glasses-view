@@ -55,6 +55,9 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
+    // custom reporting stuffs for GUM
+    _gaq.push( ['_setCustomVar', 1, 'GUM Support', typeof(navigator.getUserMedia) !== 'function' ? 'No' : 'Yes', 2] );
+
   </script>
   
 </body>
