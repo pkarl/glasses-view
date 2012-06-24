@@ -12,14 +12,14 @@ enable flag in about:flags
   Enable PeerConnection. Mac, Windows, Linux, Chrome OS
   Enable PeerConnection APIs for WebRTC functionality. More info at webrtc.org.
 
-Referenced https://github.com/rwldrn/idiomatic.js/ to write the JavaScript
-
 viewed this through a local python server **python -m SimpleHTTPServer**
 
 Notes
 =====
 
-Helped by http://www.webrtc.org/blog/
+More info at http://www.webrtc.org/blog/
+
+Referenced https://github.com/rwldrn/idiomatic.js/
 
 Ran into issue like this dude:
 
