@@ -1,9 +1,7 @@
 <html>
 <head>
   <title>Glasses View</title>
-
   <link rel="stylesheet" type="text/css" href="styles.css">
-
 </head>
 <body>
 
@@ -16,7 +14,7 @@
     <img class="glasses-face bottom" src="large_crop.jpg">
   </div>
 
-  <p><a href="http://github.com/pkarl/glasses-view">Check out the project on Github</a></p>
+  <p><a href="http://github.com/pkarl/glasses-view">Check out the project on Github</a>.</p>
 
   <script src="navigator.getusermedia.js"></script>
   <script>
@@ -45,8 +43,10 @@
     });
 
     // teh Googs
+
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-294631-12']);
+    _gaq.push(1, 'GUM Support', typeof(navigator.getUserMedia) !== 'function' ? 'No' : 'Yes', 2] ); // custom reporting stuffs for GUM
     _gaq.push(['_trackPageview']);
 
     (function() {
@@ -54,9 +54,6 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-
-    // custom reporting stuffs for GUM
-    _gaq.push( ['_setCustomVar', 1, 'GUM Support', typeof(navigator.getUserMedia) !== 'function' ? 'No' : 'Yes', 2] );
 
   </script>
   

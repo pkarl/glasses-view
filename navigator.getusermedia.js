@@ -13,7 +13,7 @@
       window.URL = window.webkitURL || window.oURL;
     }
     if ( !navigator.getUserMedia ) {
-      navigator.getUserMedia = navigator.webkitGetUserMedia || {}
+      navigator.getUserMedia = navigator.webkitGetUserMedia || {};
     }
   }
 
