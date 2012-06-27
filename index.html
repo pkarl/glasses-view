@@ -46,7 +46,8 @@
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-294631-12']);
-    _gaq.push(1, 'GUM Support', typeof(navigator.getUserMedia) !== 'function' ? 'No' : 'Yes', 2] ); // custom reporting stuffs for GUM
+    // custom reporting stuffs for GUM
+    _gaq.push(['_setCustomVar', 1, 'GUM Support', typeof(navigator.getUserMedia) !== 'function' ? 'No' : 'Yes', 2]);
     _gaq.push(['_trackPageview']);
 
     (function() {
