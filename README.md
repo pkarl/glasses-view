@@ -1,7 +1,9 @@
 glasses-view
 ============
 
-A fun little project where I play with WebRTC
+A fun little project where I play with WebRTC.
+
+Here's a demo: http://pkarl.github.com/glasses-view/
 
 Setup
 =====
